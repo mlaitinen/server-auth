@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- OAuth Provider Form View  -->
+    <record id="auth_oauth_provider_form" model="ir.ui.view">
+        <field name="name">auth.oauth.provider.groups.form</field>
+        <field name="model">auth.oauth.provider</field>
+        <field name="inherit_id" ref="auth_oauth.view_oauth_provider_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <header>
+                    <button
+                        name="refresh_groups"
+                        type="object"
+                        string="Refresh Groups"
+                        attrs="{'invisible': [('provider_service', '=', False)]}"/>
+                </header>
+            </xpath>
+
+            <field name="name" position="after">
+                <field name="provider_service"/>
+            </field>
+
+            <xpath expr="//sheet" position="inside">
+                <group name="group_mappings"
+                       string="Active Directory Groups"
+                       attrs="{'invisible': [('provider_service', '=', False)]}">
+                    <field name="force_groups"/>
+                    <field name="new_groups_handling"/>
+                    <field name="group_mapping_ids">
+                        <tree editable="top">
+                            <field name="directory_group_id"/>
+                            <field name="group_id"/>
+                        </tree>
+                    </field>
+                </group>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

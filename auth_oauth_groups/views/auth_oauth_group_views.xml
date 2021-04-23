@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_oauth_group_form" model="ir.ui.view">
+        <field name="name">auth.oauth.group.form</field>
+        <field name="model">auth.oauth.group</field>
+        <field name="arch" type="xml">
+            <form string="arch">
+                <sheet>
+                    <group>
+                        <field name="provider_id"/>
+                        <field name="group_identifier"/>
+                        <field name="name"/>
+                        <field name="group_mapping_ids">
+                            <tree>
+                                <field name="group_id"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_oauth_group_tree" model="ir.ui.view">
+        <field name="name">auth.oauth.group.tree</field>
+        <field name="model">auth.oauth.group</field>
+        <field name="arch" type="xml">
+            <tree string="arch">
+                <field name="provider_id"/>
+                <field name="group_identifier"/>
+                <field name="name"/>
+                <field name="has_group_mappings"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_oauth_group_search" model="ir.ui.view">
+        <field name="name">auth.oauth.group.search</field>
+        <field name="model">auth.oauth.group</field>
+        <field name="arch" type="xml">
+            <search string="OAuth Groups">
+                <field name="name"/>
+                <field name="group_identifier"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_oauth_group" model="ir.actions.act_window">
+        <field name="name">OAuth Groups</field>
+        <field name="res_model">auth.oauth.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_oauth_groups" name="OAuth Groups"
+              parent="base.menu_users" sequence="40"
+              action="action_oauth_group" groups="base.group_no_one"/>
+</odoo>
