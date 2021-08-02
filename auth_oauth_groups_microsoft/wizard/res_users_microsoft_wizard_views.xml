@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_res_users_microsoft_wizard" model="ir.ui.view">
+        <field name="model">res.users.microsoft.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Import Users from Microsoft Graph API">
+                <group>
+                    <field name="group_id" invisible="1"/>
+                    <field name="access_token"/>
+                </group>
+                <footer>
+                    <button name="import_users" string="Import" type="object" class="oe_highlight"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -5,6 +5,7 @@
         <field name="model">auth.oauth.group</field>
         <field name="arch" type="xml">
             <form string="arch">
+                <header/>
                 <sheet>
                     <group>
                         <field name="provider_id"/>

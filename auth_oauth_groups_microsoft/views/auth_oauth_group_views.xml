@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_oauth_group_form_microsoft" model="ir.ui.view">
+        <field name="name">auth.oauth.group.form.microsoft</field>
+        <field name="model">auth.oauth.group</field>
+        <field name="inherit_id" ref="auth_oauth_groups.view_oauth_group_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header" position="inside">
+                <field name="provider_service" invisible="1"/>
+                <button
+                    name="import_users"
+                    type="object"
+                    string="Import Users"
+                    attrs="{'invisible': [('provider_service', '=', False)]}"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
