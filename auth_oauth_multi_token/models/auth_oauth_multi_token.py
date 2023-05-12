@@ -10,7 +10,7 @@ class AuthOauthMultiToken(models.Model):
     """Define a set of tokens."""
 
     _name = "auth.oauth.multi.token"
-    _description = "OAuth2 token"
+    _description = "OAuth2 Token"
     _order = "id desc"
 
     oauth_access_token = fields.Char(
