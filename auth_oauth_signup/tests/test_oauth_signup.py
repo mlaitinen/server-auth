@@ -1,8 +1,9 @@
 # Copyright 2023 Paja SIA
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
-
 from odoo.exceptions import AccessDenied
 from odoo.tests.common import TransactionCase
+
+from odoo.addons.auth_signup.models.res_partner import SignupError
 
 
 class TestOAuthSignup(TransactionCase):
@@ -34,3 +35,7 @@ class TestOAuthSignup(TransactionCase):
         self.env["res.users"]._auth_oauth_signin(
             self.provider.id, self.validation, self.params
         )
+
+    def test_no_provider_signup_error(self):
+        with self.assertRaises(SignupError):
+            self.env["res.users"]._signup_create_user({"invalidfield": "invalidvalue"})

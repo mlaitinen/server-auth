@@ -28,7 +28,7 @@ class ResUsers(models.Model):
             # The method `_get_signup_invitation_scope` in "website" gets to run first
             # (unless this module had a dependency to it) and thus never calls super,
             # so overriding that method would only work if "website" wasn't installed.
-            if provider.allow_signup:
+            if provider and provider.allow_signup:
                 new_user = self._create_user_from_template(values)
             else:
                 raise e
