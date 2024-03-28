@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "OAuth Group Mapping for Azure AD",
-    "version": "16.0.1.0.1",
+    "version": "16.0.1.0.2",
     "website": "https://github.com/OCA/server-auth",
     "depends": [
         "auth_oauth_groups",
